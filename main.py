@@ -18,7 +18,7 @@ move <direction>
 pickup <item>
 exit
 ''')
-
+# milan is gay
 # main game loop
 while True:
     # tell the user the position and possible movements the user can make
