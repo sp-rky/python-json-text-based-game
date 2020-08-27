@@ -4,9 +4,9 @@
     "location": "Manor",
     "desc":"placeholder text",
     "possibleMovements": {
-      "north": "1",
-      "south": "2",
-      "east": "3"
+      "north": [null,"1"],
+      "south": [null,"2"],
+      "east": [null, "3"]
     }
   },
   "1":
@@ -14,11 +14,11 @@
     "location": "Kitchen",
     "desc":"There is a knife on the table.",
     "possibleMovements": {
-      "south": "0",
-      "east": "3"
+      "south": [null, "0"],
+      "east": [null, "3"]
     },
     "availableItems": [
-      "knife"
+      "key"
     ]
   },
   "2":
@@ -26,8 +26,8 @@
     "location": "Dining Room",
     "desc":"placeholder text",
     "possibleMovements": {
-      "north": "0",
-      "east": "3"
+      "north": [null,"0"],
+      "east": [null,"3"]
     }
   },
   "3":
@@ -35,8 +35,8 @@
     "location": "Super Long Living Room",
     "desc":"placeholder text",
     "possibleMovements": {
-      "west": "0",
-      "east": "4"
+      "west": [null,"0"],
+      "east": [null,"4"]
     }
   },
   "4":
@@ -44,8 +44,17 @@
     "location": "Small Room",
     "desc": "There is a locked door in front of you.",
     "possibleMovements": {
-      "west": "3",
-      "through door": ["key", "5"]
+      "west": [null, "3"],
+      "through": ["key", "5"]
+    }
+  },
+  "5":
+  {
+    "location": "Super Long Living Room",
+    "desc":"placeholder text",
+    "possibleMovements": {
+      "west": [null,"0"],
+      "east": [null,"4"]
     }
   }
 }

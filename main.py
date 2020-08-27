@@ -18,7 +18,7 @@ move <direction>
 pickup <item>
 exit
 ''')
-# milan is gay
+
 # main game loop
 while True:
     # tell the user the position and possible movements the user can make
@@ -26,22 +26,30 @@ while True:
     time.sleep(0.25)
     print(story[locationCode]['desc'])
     time.sleep(0.25)
-    if len(story[locationCode]['possibleMovements'].keys()) > 1:
-        print(f"You can go {', '.join(list(story[locationCode]['possibleMovements'].keys())[0:-1])}, or {list(story['0']['possibleMovements'].keys())[-1]}.")
+    possibleMovements = [i for i in story[locationCode]['possibleMovements']]
+    if len(possibleMovements) > 1:
+        print(f"You can go {', '.join(possibleMovements[:-1])}, or {possibleMovements[-1]}.")
     else:
-        print(f"You can go {list(story[locationCode]['possibleMovements'].keys())[-1]}.")
+        print(f"You can go {possibleMovements[-1]}.")
     time.sleep(0.25)
 
     # ask the next direction, exiting if needed
     command = input('What do you do? ').lower()
 
-    # perform the command and raise and InvalidCommand error if there is a mistype
+    # perform the command and raise an InvalidCommand error if there is a mistype
     try:
         if command == 'exit':
             break
         elif command.split()[0] == "move":
-            if command.split()[1] in story[locationCode]['possibleMovements']:
-                locationCode = story[locationCode]['possibleMovements'][command.split()[1]]
+            if command.split()[1] in possibleMovements:
+                requiredItem = story[locationCode]['possibleMovements'][command.split()[1]][0]
+                if not requiredItem:
+                    locationCode = story[locationCode]['possibleMovements'][command.split()[1]][1]
+                elif requiredItem:
+                    if requiredItem in inventory:
+                        locationCode = story[locationCode]['possibleMovements'][command.split()[1]][1]
+                    else:
+                        print(f"You do not have the required {story[locationCode]['possibleMovements'][command.split()[1]][0]}")
             else:
                 raise InvalidCommand
         elif command.split()[0] == "pickup":
@@ -55,8 +63,8 @@ while True:
         print("Invalid Command!")
     except IndexError:
         print("Wrong number of inputs!")
-    except Exception as e:
-        print(f"Unknown error: {e}")
+    '''except Exception as e:
+        print(f"Unknown error: {e}")'''
 
     # add a newline for formatting (makes the interface easier on the eyes)
     time.sleep(0.5)
