@@ -63,9 +63,8 @@ while True:
         print("Invalid Command!")
     except IndexError:
         print("Wrong number of inputs!")
-    '''except Exception as e:
-        print(f"Unknown error: {e}")'''
-
+    except Exception as e:
+        print(f"Unknown error: {e}")
     # add a newline for formatting (makes the interface easier on the eyes)
     time.sleep(0.5)
     print()
