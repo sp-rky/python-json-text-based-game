@@ -1,7 +1,7 @@
 import time
 import json
 
-def loadSaves(saves):
+def load(saves):
     # select saves, looping if the user selects an invalid save, deleting if requested
     while True:
         print("Saves:")
@@ -40,3 +40,16 @@ def loadSaves(saves):
             locationCode = saves[save]['location']
             break
     return inventory, locationCode
+
+def save(inventory, locationCode):
+    # save the user's progress
+    saveState = True if input('Would you like to save your progress? (y/n): ') == 'y' else False
+    if saveState:
+        saveName = input('Enter a save name: ')
+        print('Please wait, saving progress...')
+        with open('saves.json', 'w+') as f:
+            # add the save to the saves dict
+            saves[saveName] = {'location':locationCode, 'inventory':inventory}
+            # save the saves dict to the saves.json file
+            json.dump(saves, f)
+        time.sleep(0.5)

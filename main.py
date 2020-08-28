@@ -1,6 +1,6 @@
 import json
 import time
-import functions
+import saves
 from exceptions import InvalidCommand
 
 # store the story json into a dictionary
@@ -10,7 +10,7 @@ with open('story.json') as f:
 with open('saves.json', 'r') as f:
     saves = json.load(f)
 
-inventory, locationCode = functions.loadSaves(saves)
+inventory, locationCode = functions.load(saves)
 
 print('''
 Possible Commands:
@@ -70,14 +70,4 @@ while True:
     print()
     time.sleep(0.5)
 
-# save the user's progress
-saveState = True if input('Would you like to save your progress? (y/n): ') == 'y' else False
-if saveState:
-    saveName = input('Enter a save name: ')
-    print('Please wait, saving progress...')
-    with open('saves.json', 'w+') as f:
-        # add the save to the saves dict
-        saves[saveName] = {'location':locationCode, 'inventory':inventory}
-        # save the saves dict to the saves.json file
-        json.dump(saves, f)
-    time.sleep(0.5)
+saves.save(inventory, locationCode)
