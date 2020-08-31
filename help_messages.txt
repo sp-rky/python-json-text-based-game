@@ -1,0 +1,4 @@
+Help:
+  - To move to a new area (the area must be one of the ones listed), type move <direction>
+  - To pickup an item (the item will be mentioned in the description), type pickup <item>
+  - To exit the game, simply type "exit" and press enter. You will be given the option to save.

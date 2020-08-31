@@ -41,7 +41,7 @@ def load(saves):
             break
     return inventory, locationCode
 
-def save(inventory, locationCode):
+def save(saves, inventory, locationCode):
     # save the user's progress
     saveState = True if input('Would you like to save your progress? (y/n): ') == 'y' else False
     if saveState:
