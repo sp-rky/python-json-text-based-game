@@ -1,7 +1,11 @@
+import os
 import json
 import time
+
+# import custom libraries
 import saves
 from exceptions import *
+from print_ import *
 
 # store the story json into a dictionary
 with open('story.json') as f:
@@ -26,27 +30,33 @@ exit
 # main game loop
 while True:
     # tell the user their position and possible movements the user can make
-    print(f"You are in a {story[locationCode]['location']}.")
-    time.sleep(0.25)
-    print(story[locationCode]['desc'])
-    time.sleep(0.25)
+    letterPrint(f"You are in a {story[locationCode]['location']}.")
+    time.sleep(0.75)
+    letterPrint(story[locationCode]['desc'])
+    time.sleep(0.75)
     # store all the possible movements, makes code a lot simpler and saves a lot of typing
     possibleMovements = [i for i in story[locationCode]['possibleMovements']]
     if len(possibleMovements) > 1:
-        print(f"You can go {', '.join(possibleMovements[:-1])}, or {possibleMovements[-1]}.")
+        letterPrint(f"You can go {', '.join(possibleMovements[:-1])}, or {possibleMovements[-1]}.")
     else:
-        print(f"You can go {possibleMovements[-1]}.")
-    time.sleep(0.25)
+        letterPrint(f"You can go {possibleMovements[-1]}.")
+    time.sleep(0.75)
 
     # ask the next direction, exiting if needed
-    command = input('What do you do? ').lower()
-    time.sleep(0.25)
+    letterPrint('What do you do? ')
+    command = input().lower()
+    time.sleep(0.75)
 
     # perform the command and raise an InvalidCommand error if there is a mistype
     try:
         # exit the program
         if command == 'exit':
             break
+        elif command == "inventory":
+            if inventory != []:
+                letterPrint(f"You have {', '.join(inventory)} in your inventory")
+            else:
+                letterPrint("You have nothing in your inventory.")
         # move the player into the required room, if they have the required item in their inventory
         elif command.split()[0] == "move":
             # ensure it is a valid movement
@@ -70,7 +80,7 @@ while True:
             else:
                 raise ItemDoesNotExist(command.split()[1])
         elif command.split()[0] == "help":
-            print(helpMessage)
+            letterPrint(helpMessage)
         else:
             raise InvalidCommand
     except InvalidCommand:
@@ -84,9 +94,11 @@ while True:
     except Exception as e:
         print(f"Unknown error: {e}")
     # add a newline for formatting (makes the interface easier on the eyes)
-    time.sleep(0.5)
     print()
     time.sleep(0.5)
 
 # save the file, if the user wishes (handled within the function)
 saves.save(saveFile, inventory, locationCode)
+
+print("Press any key to exit...", end='', flush=True)
+os.system('pause >nul')
