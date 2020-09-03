@@ -53,3 +53,9 @@ def save(saves, inventory, locationCode):
             # save the saves dict to the saves.json file
             json.dump(saves, f)
         time.sleep(0.5)
+        # print how many save files it saved
+        items = 0
+        for item in saves:
+            items += 1
+        print(f'Saved {items} saves.')
+        time.sleep(0.5)
