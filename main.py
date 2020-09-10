@@ -6,12 +6,13 @@ import time
 import saves
 from exceptions import *
 from print_ import *
+from colour import colour
 
 # store the story json into a dictionary
 with open('story.json') as f:
     story = json.load(f)
 
-with open('saves.json', 'r') as f:
+with open('saves.json') as f:
     saveFile = json.load(f)
 
 # load the help help message
@@ -37,9 +38,9 @@ while True:
     # store all the possible movements, makes code a lot simpler and saves a lot of typing
     possibleMovements = [i for i in story[locationCode]['possibleMovements']]
     if len(possibleMovements) > 1:
-        letterPrint(f"You can go {', '.join(possibleMovements[:-1])}, or {possibleMovements[-1]}.")
+        letterPrint(f"You can go {colour.BOLD}{f'{colour.END}, {colour.BOLD}'.join(possibleMovements[:-1])}{colour.END}, or {colour.BOLD}{possibleMovements[-1]}{colour.END}.")
     else:
-        letterPrint(f"You can go {possibleMovements[-1]}.")
+        letterPrint(f"You can go {colour.BOLD}{possibleMovements[-1]}{colour.END}.")
     time.sleep(0.75)
 
     # ask the next direction, exiting if needed
@@ -60,15 +61,15 @@ while True:
         # move the player into the required room, if they have the required item in their inventory
         elif command.split()[0] == "move":
             # ensure it is a valid movement
-            if command.split()[1] in possibleMovements:
-                requiredItem = story[locationCode]['possibleMovements'][command.split()[1]][0]
+            if ' '.join(command.split()[1:]) in possibleMovements:
+                requiredItem = story[locationCode]['possibleMovements'][' '.join(command.split()[1:])][0]
                 # if there is no required item (a None object) then just move them
                 if not requiredItem:
-                    locationCode = story[locationCode]['possibleMovements'][command.split()[1]][1]
+                    locationCode = story[locationCode]['possibleMovements'][' '.join(command.split()[1:])][1]
                 # otherwise ensure the item is in their inventory
-                elif requiredItem:
+                else:
                     if requiredItem in inventory:
-                        locationCode = story[locationCode]['possibleMovements'][command.split()[1]][1]
+                        locationCode = story[locationCode]['possibleMovements'][' '.join(command.split()[1:])][1]
                     else:
                         raise ItemNotInInventory(requiredItem)
             else:

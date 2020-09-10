@@ -1,60 +1,52 @@
 {
   "0":
   {
-    "location": "Manor",
-    "desc":"placeholder text",
+    "location": "Dark Room",
+    "desc":"The only light you can see comes from a small window.\nThere is a comically small door in front of you that you could squeeze through\nif you weren't so fat.\nYou really should exercise.",
     "possibleMovements": {
-      "north": [null,"1"],
-      "south": [null,"2"],
-      "east": [null, "3"]
+      "towards the door": [null,"1"]
     }
   },
   "1":
   {
-    "location": "Kitchen",
-    "desc":"There is a knife on the table.",
+    "location": "Dark Room, still.",
+    "desc":"Moving towards the door really exhausted you.",
     "possibleMovements": {
-      "south": [null, "0"],
-      "east": [null, "3"]
-    },
-    "availableItems": [
-      "key"
-    ]
+      "back to where you started": [null,"2"]
+    }
   },
   "2":
   {
-    "location": "Dining Room",
-    "desc":"placeholder text",
+    "location": "Dark Room, still.",
+    "desc":"Damn! That was exhausting! You are now skinny enough to fit through\nthe door.",
     "possibleMovements": {
-      "north": [null,"0"],
-      "east": [null,"3"]
+      "through the door": [null,"3"]
     }
   },
   "3":
   {
-    "location": "Super Long Living Room",
-    "desc":"placeholder text",
+    "location": "Dark Hallway",
+    "desc":"You squeezed through the comically small door, and are now in a small\nhallway. It appears you shrunk. There are 3 doors in front of you.",
     "possibleMovements": {
-      "west": [null,"0"],
-      "east": [null,"4"]
+      "through door 1": [null,"4"],
+      "through door 2": [null,"5"],
+      "through door 3": ["blue key","6"]
     }
   },
   "4":
   {
-    "location": "Small Room",
-    "desc": "There is a locked door in front of you.",
+    "location": "Fairly normal-looking room.",
+    "desc":"You are in a normal room, with beautiful floral wallpapers and some\nlovely art on the wall....\n\nThere is also a lion. I suggest running.",
     "possibleMovements": {
-      "west": [null, "3"],
-      "through": ["key", "5"]
+      "back to the hallway": [null,"7"]
     }
   },
-  "5":
+  "7":
   {
-    "location": "Super Long Living Room",
-    "desc":"placeholder text",
+    "location": "Dark Hallway",
+    "desc":"There are 3 doors in front of you.",
     "possibleMovements": {
-      "west": [null,"0"],
-      "east": [null,"4"]
+      "back to the hallway": [null,"7"]
     }
   }
 }
