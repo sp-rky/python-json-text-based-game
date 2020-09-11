@@ -95,8 +95,8 @@ while True:
         print(f'You do not have the required {e}.')
     except IndexError:
         print("Wrong number of inputs!")
-    #except Exception as e:
-    #    print(f"Unknown error: {e}")
+    except Exception as e:
+        print(f"Unknown error: {e}")
     # add a newline for formatting (makes the interface easier on the eyes)
     print()
     time.sleep(0.5)
