@@ -80,9 +80,9 @@ while True:
         # pick up the item, if it exists in the room
         elif command == "pickup":
             if data in story[locationCode]['availableItems'] and data not in inventory:
-                inventory.append(command.split()[1])
+                inventory.append(data)
             else:
-                raise ItemDoesNotExist(command.split()[1])
+                raise ItemDoesNotExist(data)
         elif command == "help":
             letterPrint(helpMessage)
         else:

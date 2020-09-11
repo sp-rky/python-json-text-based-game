@@ -1,32 +1,36 @@
 {
   "0":
   {
-    "location": "Dark Room",
+    "location": "dark room",
     "desc":"The only light you can see comes from a small window.\nThere is a comically small door in front of you that you could squeeze through\nif you weren't so fat.\nYou really should exercise.",
+    "availableItems": [],
     "possibleMovements": {
       "towards the door": [null,"1"]
     }
   },
   "1":
   {
-    "location": "Dark Room, still.",
+    "location": "dark room, still.",
     "desc":"Moving towards the door really exhausted you.",
+    "availableItems": [],
     "possibleMovements": {
       "back to where you started": [null,"2"]
     }
   },
   "2":
   {
-    "location": "Dark Room, still.",
+    "location": "dark room, still.",
     "desc":"Damn! That was exhausting! You are now skinny enough to fit through\nthe door.",
+    "availableItems": [],
     "possibleMovements": {
       "through the door": [null,"3"]
     }
   },
   "3":
   {
-    "location": "Dark Hallway",
+    "location": "dark hallway",
     "desc":"You squeezed through the comically small door, and are now in a small\nhallway. There are 3 doors in front of you.",
+    "availableItems": [],
     "possibleMovements": {
       "through door 1": [null,"4"],
       "through door 2": [null,"5"],
@@ -35,16 +39,38 @@
   },
   "4":
   {
-    "location": "Fairly normal-looking room.",
-    "desc":"You are in a normal room, with beautiful floral wallpapers and some\nlovely art on the wall....\n\nThere is also a lion. I suggest running.",
+    "location": "fairly normal-looking room",
+    "desc":"The room has beautiful floral wallpapers and some\nlovely art on the wall....\n\nThere is also a lion. I suggest running.",
+    "availableItems": [],
+    "possibleMovements": {
+      "back to the hallway": [null,"7"]
+    }
+  },
+  "5":
+  {
+    "location": "another dark room",
+    "desc":"You move around and stub your toe on a blue key.\nOw.",
+    "availableItems": [
+      "blue key"
+    ],
+    "possibleMovements": {
+      "back to the hallway": [null,"7"]
+    }
+  },
+  "6":
+  {
+    "location": "another room with even more doors.",
+    "desc": "You are beginning to get the idea that the developer doesn't\nspecialize in gameplay.",
+    "availableItems": [],
     "possibleMovements": {
       "back to the hallway": [null,"7"]
     }
   },
   "7":
   {
-    "location": "Dark Hallway",
+    "location": "dark hallway",
     "desc":"There are 3 doors in front of you.",
+    "availableItems": [],
     "possibleMovements": {
       "through door 1": [null,"4"],
       "through door 2": [null,"5"],
