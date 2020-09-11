@@ -38,9 +38,9 @@ while True:
     # store all the possible movements, makes code a lot simpler and saves a lot of typing
     possibleMovements = [i for i in story[locationCode]['possibleMovements']]
     if len(possibleMovements) > 1:
-        letterPrint(f"You can go {colour.BOLD}{f'{colour.END}, {colour.BOLD}'.join(possibleMovements[:-1])}{colour.END}, or {colour.BOLD}{possibleMovements[-1]}{colour.END}.")
+        letterPrint(f"You can go {colour.RED}{f'{colour.END}, {colour.RED}'.join(possibleMovements[:-1])}{colour.END}, or {colour.RED}{possibleMovements[-1]}{colour.END}.")
     else:
-        letterPrint(f"You can go {colour.BOLD}{possibleMovements[-1]}{colour.END}.")
+        letterPrint(f"You can go {colour.RED}{possibleMovements[-1]}{colour.END}.")
     time.sleep(0.75)
 
     # ask the next direction, exiting if needed
