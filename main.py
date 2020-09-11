@@ -25,9 +25,11 @@ print('''
 Possible Commands:
 move <direction>
 pickup <item>
+inventory
+help
 exit
 ''')
-
+time.sleep(3)
 # main game loop
 while True:
     # tell the user their position and possible movements the user can make
@@ -50,6 +52,7 @@ while True:
 
     # perform the command and raise an InvalidCommand error if there is a mistype
     try:
+        command, data = command.split()[0], ' '.join(command.split()[1:])
         # exit the program
         if command == 'exit':
             break
@@ -59,28 +62,28 @@ while True:
             else:
                 letterPrint("You have nothing in your inventory.")
         # move the player into the required room, if they have the required item in their inventory
-        elif command.split()[0] == "move":
+        elif command == "move":
             # ensure it is a valid movement
-            if ' '.join(command.split()[1:]) in possibleMovements:
-                requiredItem = story[locationCode]['possibleMovements'][' '.join(command.split()[1:])][0]
+            if data in possibleMovements:
+                requiredItem = story[locationCode]['possibleMovements'][data][0]
                 # if there is no required item (a None object) then just move them
                 if not requiredItem:
-                    locationCode = story[locationCode]['possibleMovements'][' '.join(command.split()[1:])][1]
+                    locationCode = story[locationCode]['possibleMovements'][data][1]
                 # otherwise ensure the item is in their inventory
                 else:
                     if requiredItem in inventory:
-                        locationCode = story[locationCode]['possibleMovements'][' '.join(command.split()[1:])][1]
+                        locationCode = story[locationCode]['possibleMovements'][data][1]
                     else:
                         raise ItemNotInInventory(requiredItem)
             else:
                 raise InvalidCommand
         # pick up the item, if it exists in the room
-        elif command.split()[0] == "pickup":
-            if command.split()[1] in story[locationCode]['availableItems'] and command.split()[1] not in inventory:
+        elif command == "pickup":
+            if data in story[locationCode]['availableItems'] and data not in inventory:
                 inventory.append(command.split()[1])
             else:
                 raise ItemDoesNotExist(command.split()[1])
-        elif command.split()[0] == "help":
+        elif command == "help":
             letterPrint(helpMessage)
         else:
             raise InvalidCommand
@@ -92,8 +95,8 @@ while True:
         print(f'You do not have the required {e}.')
     except IndexError:
         print("Wrong number of inputs!")
-    except Exception as e:
-        print(f"Unknown error: {e}")
+    #except Exception as e:
+    #    print(f"Unknown error: {e}")
     # add a newline for formatting (makes the interface easier on the eyes)
     print()
     time.sleep(0.5)

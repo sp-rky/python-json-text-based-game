@@ -26,7 +26,7 @@
   "3":
   {
     "location": "Dark Hallway",
-    "desc":"You squeezed through the comically small door, and are now in a small\nhallway. It appears you shrunk. There are 3 doors in front of you.",
+    "desc":"You squeezed through the comically small door, and are now in a small\nhallway. There are 3 doors in front of you.",
     "possibleMovements": {
       "through door 1": [null,"4"],
       "through door 2": [null,"5"],
@@ -46,7 +46,9 @@
     "location": "Dark Hallway",
     "desc":"There are 3 doors in front of you.",
     "possibleMovements": {
-      "back to the hallway": [null,"7"]
+      "through door 1": [null,"4"],
+      "through door 2": [null,"5"],
+      "through door 3": ["blue key","6"]
     }
   }
 }
