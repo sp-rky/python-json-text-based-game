@@ -1,5 +1,5 @@
 python-json-text-based-game
-By Marcus Fletcher Davey / sp-rky
+By Stephanie Fletcher Davey / sp-rky
 
 
 Reads the story.json file to present a text based puzzle game to the user.

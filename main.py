@@ -46,7 +46,7 @@ while True:
     time.sleep(0.75)
 
     # ask the next direction, exiting if needed
-    letterPrint('What do you do? ')
+    letterPrint('What do you do? ', _end='')
     command = input().lower()
     time.sleep(0.75)
 
@@ -80,6 +80,7 @@ while True:
         # pick up the item, if it exists in the room
         elif command == "pickup":
             if data in story[locationCode]['availableItems'] and data not in inventory:
+                print(f"Added {data} to your inventory.")
                 inventory.append(data)
             else:
                 raise ItemDoesNotExist(data)
