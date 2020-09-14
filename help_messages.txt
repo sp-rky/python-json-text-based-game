@@ -1,4 +1,6 @@
 Help:
   - To move to a new area (the area must be one of the ones listed), type move <direction>
+    @ Directions are coloured red. They must be typed exactly as they are written (except for case)
   - To pickup an item (the item will be mentioned in the description), type pickup <item>
+  - To see your inventory, type inventory
   - To exit the game, simply type "exit" and press enter. You will be given the option to save.

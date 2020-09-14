@@ -59,11 +59,14 @@
   },
   "6":
   {
-    "location": "another room with even more doors.",
+    "location": "another room with even more doors",
     "desc": "You are beginning to get the idea that the developer doesn't\nspecialize in gameplay.",
     "availableItems": [],
     "possibleMovements": {
-      "back to the hallway": [null,"7"]
+      "back to the hallway": [null,"7"],
+      "through door 1": [null, "8"],
+      "through door 2": [null, "9"],
+      "through door 3": ["key 69420", "10"]
     }
   },
   "7":
@@ -75,6 +78,72 @@
       "through door 1": [null,"4"],
       "through door 2": [null,"5"],
       "through door 3": ["blue key","6"]
+    }
+  },
+  "8":
+  {
+    "location": "empty room",
+    "desc":"That's it. There is nothing here. I swear.",
+    "availableItems": ["super secret key that isn't an easter egg i swear"],
+    "possibleMovements": {
+      "back to the room of uncreativity": [null,"6"]
+    }
+  },
+  "9":
+  {
+    "location": "room full of keys",
+    "desc":"There are literal walls of keys. You look around. There must be at\nleast 13 keys. If only there was a way to know which key you need! (there is)",
+    "availableItems": ["key 1","key 2","key 3","key 4","key 5","key 6","key 69420"],
+    "possibleMovements": {
+      "back to the room of uncreativity": [null,"6"]
+    }
+  },
+  "10":
+  {
+    "location": "room with only two doors",
+    "desc":"After recieving complaints that the game was too hard, the developer\ndecided to reduce the amount of doors in the game.\nOne door has a massive egg on it. It's probably an easter egg.",
+    "availableItems": [],
+    "possibleMovements": {
+      "back to the room of uncreativity": [null,"6"],
+      "through the easter egg door": ["super secret key that isn't an easter egg i swear", "11"],
+      "through the other door": [null, "12"]
+    }
+  },
+  "11":
+  {
+    "location": "secret easter egg room",
+    "desc":"Wow! Aren't you smart!\nGood job!\nA round of applause!\n...\n...\n...\nYou're stuck here now.",
+    "availableItems": [],
+    "possibleMovements": {
+      "back to the beginning": [null, "0"],
+      "into the real easter egg door": ["key 69420", "13"]
+    }
+  },
+  "12":
+  {
+    "location": "super unsatisfying end room",
+    "desc":"Wow, look how easy that was! You finished the game! Good job!\nType exit to end the game.",
+    "availableItems": [],
+    "possibleMovements": {
+      "nowhere": [null, ""]
+    }
+  },
+  "13":
+  {
+    "location": "shrine of immaturity",
+    "desc":"This room is dedicated to the immaturity of mankind.\n\n\n\n\n\n\n\n\n\n\n\n\n\nB E A N S",
+    "availableItems": [],
+    "possibleMovements": {
+      "back to the room with 2 doors": [null, "10"]
+    }
+  },
+  "":
+  {
+    "location": "purgatory",
+    "desc": "There is nothing here.",
+    "availableItems": [],
+    "possibleMovements": {
+      "to purgatory": [null, ""]
     }
   }
 }
