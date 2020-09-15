@@ -8,8 +8,8 @@ def load(saves):
         time.sleep(0.1)
         print('\n'.join(saves.keys()))
         time.sleep(0.1)
-        save = input('Select a save file, type "new" to create a new file, or type "del" to remove a file: ')
-        print(len('Select a save file, type "new" to create a new file, or type "del" to remove a file: ')*'=')
+        save = input('Enter a save file, type "new" to create a new file, or type "del" to remove a file: ')
+        print(len('Enter a save file, type "new" to create a new file, or type "del" to remove a file: ')*'=')
 
         time.sleep(0.1)
         # create a new game
